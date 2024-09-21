@@ -50,13 +50,35 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 45vh; 
+    height: 80vh; 
     text-align: center; 
 
     padding-left: 10vw;
     padding-right: 10vw;
 }
 
+
 .bottom-title {
-    padding-bottom: 10vh;
+    padding-bottom: 2vh;
+    padding-top: 5vh;
+
+    color: darkblue;
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+.bottom-text { 
+    text-align: justify;
+    padding-bottom: 5vh;
+    padding-top: 5vh;
+}
+
+.bottom-img {
+    height: 100vh;
+    width: 79.5vw;
+    padding-bottom: 5vh;
+
+    background-image: url('../img/sobrenos.png');
+    background-size: cover;
+    background-position: center center;
 }
