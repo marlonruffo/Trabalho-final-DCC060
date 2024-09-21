@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Roboto&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.navbar {
+    padding: 0rem;
+    background-color: black;
+}
+
+.nav-item {
+    margin-right: 1rem;
+}
+
+.links-site:hover {
+    color: #ffffff;
+    transform: matrix3d(1.05, 0, 0, 0, 0, 1.05, 0, 0, 0, 0, 1.05, 0, 0, 0, 0, 1);
+}
+
+
+.links-site {
+    font-size: 20px;
+    color: aliceblue;
+}
+
+.logo-nome {
+
+    display: flex;
+    align-self: center;
+}
+
+.nomeDoSite {
+    font-size: 20px;
+    margin: 0px;
+    padding: 0px;
+    color: aliceblue;
+    align-self: center;
+}
+
+.logo-site {
+    margin-left: -20px;
+}
+
+.botaonav {
+    font-size: 20px;
+    background-color: #1D3252;
+    border-color: #1D3252;
+
+}
+
+.dropmenu {
+    background-color: #1D3252;
+}
+
+.dropItem {
+    color: white;
+}
+
+.dropItem2 {
+    color: white;
+}
+
+.dropItem:hover {
+    background-color: #0c2853;
+    color: white;
+}
+.btn-login:hover{
+    background-color: #0855c8;
+    color: white;
+    border-color: #0c2853;
+}
+.dropItem2:hover {
+    background-color: #0c2853;
+    color: white;
+}
+
+.dropLinha {
+    background-color: white;
+}
+
+@media (max-width: 991px) {
+    .nav-link {
+      display: flex;
+      justify-content: center;
+    }
+    .nav-item {
+        margin-right: 0rem;
+    }
+    .botaonav{
+        margin-left: 50%;
+    }
+
+
+  }
