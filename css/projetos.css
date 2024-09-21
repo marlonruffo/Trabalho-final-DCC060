@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Roboto&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #1D3252;
+    color: #1D3252;
+}
+.conteudo{
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+}
+.titulo{
+    margin-top: 20px;
+    font-size: 2.5rem;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+}
+.nomeProjeto{
+    font-size: 1.5rem;
+    font-weight: 1000;
+    text-align: justify;
+    margin-top: 10px;
+    margin-bottom:10px;
+}
+.descricaoProjeto{
+    font-weight: 400;
+    width: 90%;
+    margin-bottom:15px;
+    text-align: justify;
+}
+.projeto{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

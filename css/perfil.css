@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Roboto&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.left{
+    border-right: 1px solid #1D3252 !important;
+}
+body{
+    background-color: #F7F8FB;
+}
+.perfil{
+    margin-top: 20px;
+    color: #1D3252;
+}
+.alinhar{
+    height: auto;
+}
+.btnsalvar{
+    background-color: #1D3252;
+    color: white;
+    border-color: #D9D9D9;
+}
+    .btnsalvar:hover{
+        background-color: #0064fa;
+        color: white;
+        border-color: white;
+    }
+
+.titulo{
+    font-size: 2.5rem;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+}
+
+.form-label{
+    font-weight: 700;
+    color: #1D3252;
+}

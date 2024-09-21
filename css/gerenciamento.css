@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Roboto&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #1D3252;
+}
+.titulo{
+    font-size: 2.5rem;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+}
+.legenda{
+    background-color: #1D3252;
+    color: white;
+    
+}
+.table{
+    width: 100%;
+    background-color: #D9D9D9;
+    
+}
+.btncriar{
+display: flex;
+justify-content: center;
+background-color: #1D3252;
+border-color: #ffffff;
+border-color: white;
+border-radius: 20px;
+}
+.btncriar:hover{
+    background-color: white;
+    color: black;
+    border-color: #1D3252;
+}
+.gerenciamento{
+    margin-top:20px;
+}
+.tabela{
+    margin-top: 20px;
+}
+.table, th, td {
+    border: 1px solid black; 
+    text-align: center;
+  }
+  .botaotabela{
+    background-color: #1D3252;
+    color: white;
+}
+
+.botaotabela:hover{
+    background-color: #094297;
+    color: white;
+}
+
+
+
+ /* Estilo para o modal */
+ .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+}
+
+/* Estilo para o conteúdo do modal */
+.modal-content {
+    background-color: #fff;
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+
+/* Estilo para o botão de fechar o modal */
+.close {
+    color: #333;
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Estilo para o botão de ação */
+.action-button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background-color: #1D3252;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.inscrever:hover {
+    background-color: #0056b3;
+}

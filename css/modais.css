@@ -1,0 +1,11 @@
+.botaoSalvarModal{
+    background-color: green;
+    color: white;
+    border-color: green;
+}
+.botaoSalvarModal:hover{
+    background-color: red;
+    color: white;
+    border-color: red;
+    
+}
