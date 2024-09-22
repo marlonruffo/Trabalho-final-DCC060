@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bolsa fácil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/projetos.css" />
+    <link rel="stylesheet" href="/css/modais.css" />
+</head>
+
+<body>
+    <section class="projetos">
+        <h1 class="titulo">Lista de Projetos</h1>
+
+        <div class="input-group mx-auto pesquisa">
+            <input type="search" class="form-control rounded" placeholder="Digite o título de uma projeto"
+                aria-label="Search" aria-describedby="search-addon" />
+            <button type="button" class="btn btn-outline-primary btnpesquisar">
+                Pesquisar
+            </button>
+        </div>
+
+        <!-- <div class="dropdown filtro">
+            <button class="btn btn-secondary dropdown-toggle filtrocaixa" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Filtrar tipo
+            </button>
+            <ul class="dropdown-menu menucaixa" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item caixa" href="#">Remunerado</a></li>
+                <li><a class="dropdown-item caixa" href="#">Não Remunerado</a></li>
+            </ul>
+        </div> -->
+
+        <table class="table table-striped tabela">
+            <thead>
+                <tr class="legenda">
+                    <th scope="col">Título</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Data de início</th>
+                    <th scope="col">Vagas</th>
+                    <th scope="col">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Pesquisa sobre Banco de dados</th>
+                    <td>email@gmail.com</td>
+                    <td>Iniciação Científica</td>
+                    <td>20/11/2024</td>
+                    <td>
+                        <button type="button" class="btn btn-secondary botaotabela" id="verProjetoButton">
+                            Ver
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- MODAL VISUALIZAR -->
+    <div id="visualizarProjetoModal" class="modal">
+        <div class="modal-content">
+            <div class="container-close">
+                <span class="close" id="closeVisualizarProjetoModal">&times;</span>
+            </div>
+            <h2>*Título do Projeto</h2>
+            <form action="" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="inputProfessor">Professor responsável:</label>
+                        <input type="text" class="form-control" id="inputProfessor" value="Nome do Professor" readonly />
+                    </div>
+                    <div class="form-group">
+                        <label for="inputDataIngresso">Data de Ingresso:</label>
+                        <input type="date" class="form-control" id="inputDataIngresso" value="" readonly />
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="inputCursosAceitos">Cursos aceitos:</label>
+                        <textarea class="form-control" id="inputCursosAceitos" rows="3" readonly></textarea>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="inputPreRequisito">Pre-requisitos:</label>
+                        <textarea class="form-control" id="inputPreRequisito" rows="3" readonly></textarea>
+                    </div>
+                </div>
+    
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="inputDescricao">Descrição:</label>
+                        <textarea class="form-control" id="inputDescricao" rows="3" readonly></textarea>
+                    </div>
+                </div>
+    
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="inputDataProcessoSeletivo">Data do Processo Seletivo</label>
+                        <input type="date" class="form-control" id="inputDataProcessoSeletivo" value="" readonly />
+                    </div>
+                </div>
+    
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label for="inputBolsasVoluntarias">Bolsas Voluntárias:</label>
+                        <input type="text" class="form-control" id="inputBolsasVoluntarias" value="" readonly />
+                        <div class="button-container">
+                            <button type="submit" class="action-button inscrever" id="inscreverVoluntaria">
+                                Inscrever-se
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-group col">
+                        <label for="inputBolsasRemuneradas">Bolsas Remuneradas:</label>
+                        <input type="text" class="form-control" id="inputBolsasRemuneradas" value="" readonly />
+                        <div class="button-container">
+                            <button type="submit" class="action-button inscrever" id="inscreverRemunerada">
+                                Inscrever-se
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--  -->
+
+    <script src="/js/projetos.js"></script>
+</body>
+
+</html>
