@@ -1,0 +1,106 @@
+
+body{
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    background-color: #F0F0F0;
+}
+
+.logout{
+    height: fit-content;
+
+    display: flex;
+    justify-content: end;
+    color: #d3a809;
+}
+
+.logout p{
+    height: fit-content;
+    width: fit-content;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 10px;    
+}
+
+.logout-buttom{
+    display: flex;
+
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 14px;  
+    padding-right: 10px;  
+    margin-top: 16px;
+    margin-right: 16px;
+    
+    background-color: #FFFFFF;
+    border-radius: 18px;
+    box-shadow: 0px 9px 15px rgba(0, 0, 0, 0.4);
+    fill: #d3a809;
+}
+
+.container{
+    width: 1140px;
+    height: fit-content;
+    margin: auto;
+    margin-top: 6%;
+
+    background-color: #FFFFFF;
+    box-shadow: 0px 9px 15px rgba(0, 0, 0, 0.4);
+    border-radius: 40px;
+    display: block;
+    overflow: hidden;
+}
+
+.container h1{
+    text-align: center;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    margin: 0;
+
+    background-color: #d9b32b;
+    color: black;
+    font-size: 36px;
+    font-weight: bold;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 1);
+}
+
+.container-content{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    
+    padding: 8% 0% 8% 0%;
+    margin: 0px;
+
+}
+
+.admin{
+    width: 250px;
+
+    margin-left: 8%;
+    margin-right: 8%;
+
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    text-align: center;
+
+    background-color: #d9b32b;
+    border-radius: 40px;
+    box-shadow: 0px 9px 15px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+.adminContent-link{ text-decoration: none;}
+
+.admin-options{
+    color: black;
+    font-weight: 400px;
+    letter-spacing: 1px;
+}
+
+.icons{
+    width: 40px;
+    margin-bottom: 10px;
+    fill: black;
+}
+
