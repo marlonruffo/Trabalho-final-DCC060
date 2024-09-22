@@ -8,16 +8,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../../public/css/gerenciamento.css">
+    <link rel="stylesheet" href="../../../public/css/gerenciamentoPS.css">
     
 
 </head>
 
 <body>
     <Section class="gerenciamento">
-        <h1 class="titulo">Meus projetos</h1>
+        <h1 class="titulo">Meus Processos Seletivos</h1>
         <button type="" class="btn btn-primary botaoenviar mx-auto btncriar" id="criarProjetoButton">Criar
-            Projeto</button>
+            Processo Seletivo</button>
         <table class="table table-striped tabela">
             <thead>
                 <tr class="legenda">
@@ -27,6 +27,7 @@
                     <th scope="col">Data de início</th>
                     <th scope="col">Data de término</th>
                     <th scope="col">Status</th>
+                    <th scope="col">Inscritos</th>
                     <th scope="col">Ações</th>
                 </tr>
             </thead>
@@ -38,13 +39,16 @@
                     <td>05/06/2025</td>
                     <td>05/06/2026</td>
                     <td>Ativo</td>
+                    <td>10</td>
                     <td><button type="button" class="btn btn-secondary botaotabela" id="verProjetoButton"><ion-icon
                                 name="eye-outline"></ion-icon></button>
                         <button type="button" class="btn btn-secondary botaotabela" id="editarProjetoButton"><ion-icon
                                 name="create-outline"></ion-icon></button>
                         <button type="button" class="btn btn-secondary botaotabela" id="deletarProjetoButton"><ion-icon
                                 name="trash-bin-outline"></ion-icon></button>
-                        
+                                <button type="button" class="btn btn-secondary botaotabela" id="verInscritosBolsaButton">
+                                    <ion-icon name="person-outline"></ion-icon> 
+                                </button>
                     </td>
                 </tr>
 
@@ -62,7 +66,7 @@
             <div class="container-close">
                 <span class="close" id="closeDeletarProjetoModal">&times;</span>
             </div>
-            <h2>Deletar Bolsa *Nome da bolsa*</h2>
+            <h2>Deletar Bolsa *Nome do Projeto</h2>
             <form>
 
             </form>
@@ -80,6 +84,13 @@
             </div>
             <h2>*Título do Projeto</h2>
             <form action="" method="">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="readProjeto">Projeto:</label>
+                        <input type="text" class="form-control" id="readProjeto" value="nome do projeto"  readonly/>
+                    </div>
+                    
+                </div>
                 <div class="form-row">
                     <div class="form-group">
                         <label for="readProfessor">Professor responsável:</label>
@@ -121,7 +132,12 @@
                         <textarea class="form-control" id="readDescricao" rows="3" readonly></textarea>
                     </div>
                 </div>
-                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="readObservacoes">Observações:</label>
+                        <textarea class="form-control" id="readObservacoes" rows="3" readonly></textarea>
+                    </div>
+                </div>
     
             </form>
         </div>
@@ -135,6 +151,17 @@
                 <span class="close" id="closeCriarProjetoModal">&times;</span>
             </div>
             <h2>Criar Projeto</h2>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="inputProjeto">Tipo:</label>
+                    <select class="form-control" id="inputProjeto">
+                        <option value="projeto1">Projeto 1</option>
+                        <option value="projeto2">Projeto 1</option>
+                        <option value="projeto3">Projeto 1</option>
+                        <option value="outrasAtividades">Outras projetos</option>
+                    </select>
+                </div>
+            </div>
             <div class="form-row">
                 <div class="form-group">
                     <label for="inputProfessor">Professor responsável:</label>
@@ -184,9 +211,15 @@
                     <textarea class="form-control" id="inputDescricao" rows="3" ></textarea>
                 </div>
             </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="inputObservacoes">Observações:</label>
+                    <textarea class="form-control" id="inputObservacoes" rows="3" ></textarea>
+                </div>
+            </div>
             <div class="button-container">
                 <button type="submit" class="action-button inscrever" id="criarProjeto">
-                    Criar Projeto
+                    Criar Processo Seletivo
                 </button>
             </div>
             </form>
@@ -202,8 +235,19 @@
                     <span class="close" id="closeEditarProjetoModal">&times;</span>
                 </div>
             </div>
-            <h2>Editar Projeto</h2>
+            <h2>Editar Processo Seletivo</h2>
             <form action="" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="inputProjetoEditar">Tipo:</label>
+                        <select class="form-control" id="inputProjetoEditar">
+                            <option value="projeto1">Projeto 1</option>
+                            <option value="projeto2">Projeto 1</option>
+                            <option value="projeto3">Projeto 1</option>
+                            <option value="outrasAtividades">Outras projetos</option>
+                        </select>
+                    </div>
+                </div>
                 <div class="form-row">
                     <div class="form-group">
                         <label for="inputProfessorEditar">Professor responsável:</label>
@@ -253,9 +297,15 @@
                         <textarea class="form-control" id="inputDescricaoEditar" rows="3" ></textarea>
                     </div>
                 </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="readObservacoes">Observações:</label>
+                        <textarea class="form-control" id="readObservacoes" rows="3" ></textarea>
+                    </div>
+                </div>
                 <div class="button-container">
                     <button type="submit" class="action-button inscrever" id="editarProjeto">
-                        Editar Projeto
+                        Editar Processo Seletivo
                     </button>
                 </div>
             </form>
@@ -265,14 +315,57 @@
 
 
 
- 
+    <!-- Modal para Ver inscritos -->
+    <div id="inscritosBolsaModal" class="modal">
+        <div class="modal-content">
+            <div class="container-close">
+                <span class="close" id="closeVerInscritosBolsaModal">&times;</span>
+            </div>
+    
+            <!-- Formulário que será enviado ao backend -->
+            <form action="/api/enviar-notas" method="POST">
+                <h2>Inscritos</h2>
+                <table class="inscritos-table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Matrícula</th>
+                            <th>Nota</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Carlos Santos</td>
+                            <td>345678</td>
+                            <td><input class="nota-input" type="number" name="notas[CarlosSantos]" placeholder="Informe a nota" required></td>
+                        </tr>
+                        <tr>
+                            <td>Paula Lima</td>
+                            <td>987654</td>
+                            <td><input class="nota-input" type="number" name="notas[PaulaLima]" placeholder="Informe a nota" required></td>
+                        </tr>
+                        <tr>
+                            <td>Felipe Costa</td>
+                            <td>123890</td>
+                            <td><input class="nota-input" type="number" name="notas[FelipeCosta]" placeholder="Informe a nota" required></td>
+                        </tr>
+                    </tbody>
+                </table>    
+                <div class="button-container">
+                    <button type="submit" class="action-button inscrever" id="inscreverVoluntaria">
+                        Enviar notas
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 
 
 
 
 
 
-    <script src="../../../public/js/gerenciamento.js"></script>
+    <script src="../../../public/js/gerenciamentoPS.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

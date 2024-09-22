@@ -8,16 +8,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
-    <link rel="stylesheet" href="../../../public/css/projetos.css" />
+    <link rel="stylesheet" href="../../../public/css/processoSeletivo.css" />
     <link rel="stylesheet" href="/css/modais.css" />
 </head>
 
 <body>
     <section class="projetos">
-        <h1 class="titulo">Lista de Projetos</h1>
+        <h1 class="titulo">Lista de Processos Seletivos </h1>
 
         <div class="input-group mx-auto pesquisa">
-            <input type="search" class="form-control rounded" placeholder="Digite o título de uma projeto"
+            <input type="search" class="form-control rounded" placeholder="Digite um título de um processo seletivo"
                 aria-label="Search" aria-describedby="search-addon" />
             <button type="button" class="btn btn-outline-primary btnpesquisar">
                 Pesquisar
@@ -41,6 +41,7 @@
                     <th scope="col">Tipo</th>
                     <th scope="col">Data de início</th>
                     <th scope="col">Data de término</th>
+                    
                     <th scope="col">Status</th>
                     <th scope="col">Ações</th>
                 </tr>
@@ -51,9 +52,10 @@
                     <td>Iniciação Científica</td>
                     <td>05/01/2025</td>
                     <td>05/01/2026</td>
+                    
                     <td>Ativo</td>
                     <td>
-                        <button type="button" class="btn btn-secondary botaotabela" id="verProjetoButton">
+                        <button type="button" class="btn btn-secondary botaotabela" id="verPSButton">
                             Ver
                         </button>
                     </td>
@@ -63,10 +65,10 @@
     </section>
 
     <!-- MODAL VISUALIZAR -->
-    <div id="visualizarProjetoModal" class="modal">
+    <div id="visualizarPSModal" class="modal">
         <div class="modal-content">
             <div class="container-close">
-                <span class="close" id="closeVisualizarProjetoModal">&times;</span>
+                <span class="close" id="closeVisualizarPSModal">&times;</span>
             </div>
             <h2>*Título do Projeto</h2>
             <form action="" method="POST">
@@ -107,11 +109,21 @@
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="readDescricao">Descrição:</label>
+                        <label for="readDescricao">Descrição do Projeto:</label>
                         <textarea class="form-control" id="readDescricao" rows="3" readonly></textarea>
                     </div>
                 </div>
-    
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="readObservacoes">Observações:</label>
+                        <textarea class="form-control" id="readObservacoes" rows="3" readonly></textarea>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <button type="submit" class="action-button inscrever" id="editarProjeto">
+                        Inscrever-se
+                    </button>
+                </div>
                 
     
                 
@@ -120,7 +132,7 @@
     </div>
     <!--  -->
 
-    <script src="../../../public/js/projetos.js"></script>
+    <script src="../../../public/js/processoSeletivo.js"></script>
 </body>
 
 </html>
