@@ -5,12 +5,13 @@ namespace App\Controllers;
 use App\Core\App;
 use Exception;
 
-class ExampleController
+class DisciplinasController
 {
 
     public function index()
     {
-        return view('site/index');
+        $disciplinas = App::get('database')-> selectAll('disciplina');
+        return view('disciplinas/index', $disciplinas);
     }
 }
 
