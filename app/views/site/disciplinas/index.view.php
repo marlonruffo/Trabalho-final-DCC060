@@ -65,24 +65,11 @@
                         Selecione as disciplinas que você ja concluiu
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <?php foreach($disciplinas as $disciplina): ?>
                         <label class="dropdown-item">
-                            <input type="checkbox" name="disciplinas" value="Disciplina 1"> COD - NOME
+                            <input type="checkbox" name="disciplinas" value="Disciplina"><?= $disciplina->codigo ?> - <?= $disciplina->nome ?>
                         </label>
-                        <label class="dropdown-item">
-                            <input type="checkbox" name="disciplinas" value="Disciplina 2"> COD - NOME
-                        </label>
-                        <label class="dropdown-item">
-                            <input type="checkbox" name="disciplinas" value="Disciplina 3"> COD - NOME
-                        </label>
-                        <label class="dropdown-item">
-                            <input type="checkbox" name="disciplinas" value="Disciplina 4"> COD - NOME
-                        </label>
-                        <label class="dropdown-item">
-                            <input type="checkbox" name="disciplinas" value="Disciplina 5"> COD - NOME
-                        </label>
-                        <label class="dropdown-item">
-                            <input type="checkbox" name="disciplinas" value="Disciplina 6"> COD - NOME
-                        </label>
+                        <?php endforeach; ?>
                     </div>
                 </div>
                 <small class="form-text text-muted">Selecione uma ou mais disciplinas.</small>

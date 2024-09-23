@@ -17,6 +17,19 @@ class DisciplinasController
         return view('disciplinas/index', compact("disciplinas", "preRequisitos"));
     }
 
+    public function novaMateria()
+    {
+        $parameters = [
+            'nome' => $_POST['nome'],
+            'codigo' => $_POST['codigo'],
+            'cargaHoraria' => $_POST['carHoraria'],
+        ];
+
+        App::get('database')->insert('disciplina', $parameters);
+
+        header('location: disciplinas/index');
+    }
+
 }
 
 ?>
