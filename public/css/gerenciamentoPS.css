@@ -78,7 +78,7 @@ border-radius: 20px;
     background-color: #f1f1f1;
 }
 
-/* Estilo para os quadradinhos (tags) */
+
 .selected-courses {
     display: flex;
     flex-wrap: wrap;
@@ -101,7 +101,7 @@ border-radius: 20px;
     color: white;
     border-color: #1D3252;
 }
- /* Estilo para o modal */
+
  .modal {
     display: none;
     position: fixed;
@@ -112,7 +112,7 @@ border-radius: 20px;
     background-color: rgba(0,0,0,0.7);
 }
 
-/* Estilo para o conteúdo do modal */
+
 .modal-content {
     max-height: 600px;
     overflow-y: auto;
@@ -124,7 +124,7 @@ border-radius: 20px;
     border-radius: 5px;
 }
 
-/* Estilo para o botão de fechar o modal */
+
 .close {
     color: #333;
     float: right;
@@ -133,7 +133,7 @@ border-radius: 20px;
     cursor: pointer;
 }
 
-/* Estilo para o botão de ação */
+
 .action-button {
     display: block;
     margin: 10px auto;

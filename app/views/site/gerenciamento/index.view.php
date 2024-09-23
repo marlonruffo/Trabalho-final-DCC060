@@ -24,7 +24,7 @@
 <body>
     
     <Section class="gerenciamento">
-        <h1 class="titulo">Meus projetos</h1>
+        <h1 class="titulo">Projetos</h1>
         <button type="" class="btn btn-primary botaoenviar mx-auto btncriar" id="criarProjetoButton">Criar
             Projeto</button>
         <table class="table table-striped tabela">
