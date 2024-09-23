@@ -61,21 +61,26 @@
         </table>
 
     </Section>
-    <?php foreach ($projetos as $projeto): ?>
-    <div id="deletarProjetoModal-<?php echo($projeto->idProjeto)?>"  class="modal">
-        <div class="modal-content">
-            <div class="container-close">
-                <span class="close" id="closeDeletarProjetoModal">&times;</span>
-            </div>
-            <h2>Deletar "<?=$projeto->titulo ?>" </h2>
-            <form method="POST" action="gerenciamento/delete">
-                <input type="hidden" name="idProjeto" value="<?php echo $projeto->idProjeto ?>">
-                <button class="action-button inscrever">Deletar</button>
-            </form>
 
+    <?php foreach ($projetos as $projeto): ?>
+
+    <?php if($projeto->idProfessor == $_SESSION['user']['idUsuario']): ?>
+
+        <!-- MODAL DELETAR -->
+        <div id="deletarProjetoModal-<?php echo($projeto->idProjeto)?>"  class="modal">
+            <div class="modal-content">
+                <div class="container-close">
+                    <span class="close" id="closeDeletarProjetoModal">&times;</span>
+                </div>
+                <h2>Deletar "<?=$projeto->titulo ?>" </h2>
+                <form method="POST" action="gerenciamento/delete">
+                    <input type="hidden" name="idProjeto" value="<?php echo $projeto->idProjeto ?>">
+                    <button class="action-button inscrever">Deletar</button>
+                </form>
+            </div>
         </div>
 
-    </div>
+    <?php endif; ?>
     
 
     <!-- MODAL VISUALIZAR -->
@@ -148,87 +153,97 @@
     </div>
     
     <!--  -->
+    <?php if($projeto->idProfessor == $_SESSION['user']['idUsuario']): ?>
     <!-- MODAL EDITAR -->
-    <div id="editarProjetoModal-<?php echo($projeto->idProjeto) ?>" value="<?php echo $projeto->idProjeto ?>" class="modal">
-        <div class="modal-content">
-            <div class="container-close">
-                <span class="close" id="closeEditarProjetoModal">&times;</span>
+        <div id="editarProjetoModal-<?php echo($projeto->idProjeto) ?>" value="<?php echo $projeto->idProjeto ?>" class="modal">
+            <div class="modal-content">
+                <div class="container-close">
+                    <span class="close" id="closeEditarProjetoModal">&times;</span>
+                </div>
+                <h2>Editar Projeto</h2>
+                <form action="gerenciamento/update" method="POST">
+                    
+                    <input type="hidden" name="idProjeto" value="<?php echo $projeto->idProjeto ?>">
+                    <input type="hidden" name="idProfessor" value="<?php echo $projeto->idProfessor ?>">
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="inputProfessorEditar">Professor responsável:</label>
+                            <?php foreach($professores as $prof) : ?>
+                                <?php if ($_SESSION['user']['idUsuario'] == $prof->idUsuario) : ?>
+                                    <input type="text" class="form-control" id="inputProfessorEditar" name="professor" value="<?= $prof->Nome ?>" readonly />
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmailProfessorEditar">E-mail Professor:</label>
+                            <?php foreach($professores as $prof) : ?>
+                                <?php if ($_SESSION['user']['idUsuario'] == $prof->idUsuario) : ?>
+                                    <input type="text" class="form-control" id="inputEmailProfessorEditar" name="emailProfessor" value="<?= $prof->email ?>" readonly />
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="inputTituloEditar">Titulo:</label>
+                            <input type="text" class="form-control" id="inputTituloEditar" name="titulo" value="<?php echo $projeto->titulo ?>" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputQtdeVagasEditar">Quantidade de vagas:</label>
+                            <input type="number" class="form-control" id="inputQtdeVagasEditar" name="qtdeVagas" value="<?php echo $projeto->qtdeVagas ?>" />
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="inputDataIngressoEditar">Data de início:</label>
+                            <input type="date" class="form-control" id="inputDataIngressoEditar" name="dataInicio" value="<?php echo $projeto->dataInicio ?>" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputDataTerminoEditar">Data de término:</label>
+                            <input type="date" class="form-control" id="inputDataTerminoEditar" name="dataFim" value="<?php echo $projeto->dataFim ?>" />
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="inputTipoEditar">Tipo:</label>
+                            <select class="form-control" id="inputTipoEditar" name="tipo">
+                                <option value="iniciacaoCientifica" <?php echo $projeto->tipo_projeto == 'iniciacaoCientifica' ? 'selected' : '' ?>>Iniciação Científica</option>
+                                <option value="pesquisa" <?php echo $projeto->tipo_projeto == 'pesquisa' ? 'selected' : '' ?>>Pesquisa</option>
+                                <option value="extensao" <?php echo $projeto->tipo_projeto == 'extensao' ? 'selected' : '' ?>>Extensão</option>
+                                <option value="outrasAtividades" <?php echo $projeto->tipo_projeto == 'outrasAtividades' ? 'selected' : '' ?>>Outras Atividades</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputStatusEditar">Status:</label>
+                            <select class="form-control" id="inputStatusEditar" name="status">
+                                <option value="ativo" <?php echo $projeto->status == 'ativo' ? 'selected' : '' ?>>Ativo</option>
+                                <option value="concluido" <?php echo $projeto->status == 'concluido' ? 'selected' : '' ?>>Concluído</option>
+                                <option value="emAndamento" <?php echo $projeto->status == 'emAndamento' ? 'selected' : '' ?>>Em Andamento</option>
+                                <option value="cancelado" <?php echo $projeto->status == 'cancelado' ? 'selected' : '' ?>>Cancelado</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="inputDescricaoEditar">Descrição:</label>
+                            <textarea class="form-control" id="inputDescricaoEditar" name="descricao" rows="3"><?php echo $projeto->descricao ?></textarea>
+                        </div>
+                    </div>
+
+                    <div class="button-container">
+                        <button type="submit" class="action-button inscrever" id="editarProjeto">
+                            Editar Projeto
+                        </button>
+                    </div>
+                </form>
             </div>
-            <h2>Editar Projeto</h2>
-            <form action="gerenciamento/update" method="POST">
-                
-                <input type="hidden" name="idProjeto" value="<?php echo $projeto->idProjeto ?>">
-                <input type="hidden" name="idProfessor" value="<?php echo $projeto->idProfessor ?>">
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="inputProfessorEditar">Professor responsável:</label>
-                        <input type="text" class="form-control" id="inputProfessorEditar" name="professor" value="" readonly />
-                    </div>
-                    <div class="form-group">
-                        <label for="inputEmailProfessorEditar">E-mail Professor:</label>
-                        <input type="text" class="form-control" id="inputEmailProfessorEditar" name="emailProfessor" value="" readonly />
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="inputTituloEditar">Titulo:</label>
-                        <input type="text" class="form-control" id="inputTituloEditar" name="titulo" value="<?php echo $projeto->titulo ?>" />
-                    </div>
-                    <div class="form-group">
-                        <label for="inputQtdeVagasEditar">Quantidade de vagas:</label>
-                        <input type="number" class="form-control" id="inputQtdeVagasEditar" name="qtdeVagas" value="<?php echo $projeto->qtdeVagas ?>" />
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="inputDataIngressoEditar">Data de início:</label>
-                        <input type="date" class="form-control" id="inputDataIngressoEditar" name="dataInicio" value="<?php echo $projeto->dataInicio ?>" />
-                    </div>
-                    <div class="form-group">
-                        <label for="inputDataTerminoEditar">Data de término:</label>
-                        <input type="date" class="form-control" id="inputDataTerminoEditar" name="dataFim" value="<?php echo $projeto->dataFim ?>" />
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="inputTipoEditar">Tipo:</label>
-                        <select class="form-control" id="inputTipoEditar" name="tipo">
-                            <option value="iniciacaoCientifica" <?php echo $projeto->tipo_projeto == 'iniciacaoCientifica' ? 'selected' : '' ?>>Iniciação Científica</option>
-                            <option value="pesquisa" <?php echo $projeto->tipo_projeto == 'pesquisa' ? 'selected' : '' ?>>Pesquisa</option>
-                            <option value="extensao" <?php echo $projeto->tipo_projeto == 'extensao' ? 'selected' : '' ?>>Extensão</option>
-                            <option value="outrasAtividades" <?php echo $projeto->tipo_projeto == 'outrasAtividades' ? 'selected' : '' ?>>Outras Atividades</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputStatusEditar">Status:</label>
-                        <select class="form-control" id="inputStatusEditar" name="status">
-                            <option value="ativo" <?php echo $projeto->status == 'ativo' ? 'selected' : '' ?>>Ativo</option>
-                            <option value="concluido" <?php echo $projeto->status == 'concluido' ? 'selected' : '' ?>>Concluído</option>
-                            <option value="emAndamento" <?php echo $projeto->status == 'emAndamento' ? 'selected' : '' ?>>Em Andamento</option>
-                            <option value="cancelado" <?php echo $projeto->status == 'cancelado' ? 'selected' : '' ?>>Cancelado</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="inputDescricaoEditar">Descrição:</label>
-                        <textarea class="form-control" id="inputDescricaoEditar" name="descricao" rows="3"><?php echo $projeto->descricao ?></textarea>
-                    </div>
-                </div>
-
-                <div class="button-container">
-                    <button type="submit" class="action-button inscrever" id="editarProjeto">
-                        Editar Projeto
-                    </button>
-                </div>
-            </form>
         </div>
-    </div>
+    <?php endif; ?>
 
     <?php endforeach; ?>
 
@@ -241,14 +256,22 @@
             </div>
             <h2>Criar Projeto</h2>
             <div class="form-row">
-                <input type="hidden" name="idProfessor" value="<?= $_SESSION['user']->idUsuario ?>">
+                <input type="hidden" name="idProfessor" value="<?= $_SESSION['user']['idUsuario'] ?>">
                 <div class="form-group">
                     <label for="inputProfessor">Professor responsável:</label>
-                    <input type="text" class="form-control" id="inputProfessor" value="" readonly />
+                    <?php foreach($professores as $prof) : ?>
+                        <?php if ($_SESSION['user']['idUsuario'] == $prof->idUsuario) : ?>
+                            <input type="text" class="form-control" id="inputProfessor" value="<?= $prof->Nome ?>" readonly />
+                        <?php endif; ?>
+                    <?php endforeach; ?>
                 </div>
                 <div class="form-group">
                     <label for="inputEmailProfessor">E-mail Professor:</label>
-                    <input type="text" class="form-control" id="inputEmailProfessor" value="" readonly />
+                    <?php foreach($professores as $prof) : ?>
+                        <?php if ($_SESSION['user']['idUsuario'] == $prof->idUsuario) : ?>
+                            <input type="text" class="form-control" id="inputEmailProfessor" value="<?= $prof->email ?>" readonly />
+                        <?php endif; ?>
+                    <?php endforeach; ?>
                 </div>
             </div>
 
