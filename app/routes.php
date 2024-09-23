@@ -8,6 +8,10 @@ use App\Core\Router;
     
     $router->get('login', 'LoginController@index');
 
+    $router->post('novaMateria', 'DisciplinasController@novaMateria');
+
+    $router->post('deletar', 'DisciplinasController@deletar');
+
 
     $router->get('views', 'LoginController@view');
     $router->post('views', 'LoginController@confirmLogin');

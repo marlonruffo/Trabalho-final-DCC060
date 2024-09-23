@@ -19,15 +19,32 @@ class DisciplinasController
 
     public function novaMateria()
     {
+        session_start();
+        $user = $_SESSION['user'];
+
         $parameters = [
-            'nome' => $_POST['nome'],
-            'codigo' => $_POST['codigo'],
-            'cargaHoraria' => $_POST['carHoraria'],
+            "idAluno" => $user["idUsuario"],
+            "idDisciplina" => $_POST["disciplinas"]
         ];
+        
 
-        App::get('database')->insert('disciplina', $parameters);
+        App::get('database')->insert('aluno_cursou_disciplina', $parameters);
 
-        header('location: disciplinas/index');
+        header('location: disciplinas');
+    }
+
+    public function deletar()
+    {
+        session_start();
+        $user = $_SESSION['user'];
+
+
+
+        App::get('database')->delete('aluno_cursou_disciplina', $user["idUsuario"], $_POST["idDisciplina"]);    
+        
+    
+
+        header('location: disciplinas');
     }
 
 }

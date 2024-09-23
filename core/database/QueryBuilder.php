@@ -33,6 +33,7 @@ class QueryBuilder
     {
         $sql  = "SELECT 
                     d.nome AS NomeDisciplina,
+                    d.idDisciplina AS idDisciplina,
                     d.codigo AS CodigoDisciplina,
                     d.cargaHoraria AS CargaHoraria
                 FROM 
@@ -87,4 +88,23 @@ class QueryBuilder
             die($e->getMessage());
         }
     }
+
+
+    public function delete($table, $idAluno, $idDisciplina)
+{
+    $sql = sprintf(
+        'DELETE FROM %s WHERE idAluno = :idAluno AND idDisciplina = :idDisciplina;',
+        $table
+    );
+
+    try {
+        $statement = $this->pdo->prepare($sql);
+
+
+        $statement->execute(compact('idAluno', 'idDisciplina'));
+    } catch (Exception $e) {
+        die(header('Location: disciplinas'));
+    }
+}
+
 }
