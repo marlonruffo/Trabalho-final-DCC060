@@ -23,7 +23,8 @@
     
     <table class="table table-striped tabela">
       <thead>
-        <tr class="legenda">
+        
+      <tr class="legenda">
           <th scope="col">Código</th>
           <th scope="col">Nome</th>
           <th scope="col">Pré-Requisitos</th>
@@ -31,16 +32,18 @@
           <th scope="col">Ação</th>
         </tr>
       </thead>
+    
       <tbody>
+        <?php foreach($preRequisitos as $preRequisito): ?>
         <tr>
-          <th scope="row">DCC060</th>
-          <td>Banco de dados</td>
-          <td>DCC020, DCC001</td>
-          <td>60</td> 
+          <th scope="row"><?= $preRequisito->CodigoDisciplina ?></th>
+          <td><?= $preRequisito->NomeDisciplina ?></td>
+          <td><?= $preRequisito->IdPreRequisito ?></td>
+          <td><?= $preRequisito->CargaHoraria ?></td> 
           <td><button type="button" class="btn btn-secondary botaotabela" id="deletarDisciplinaButton"><ion-icon
             name="trash-bin-outline"></ion-icon></button></td>
         </tr>
-
+        <?php endforeach; ?> 
       </tbody>
     </table>
 

@@ -14,17 +14,22 @@
         <div class="login-container">
                 <h2>Login</h2>
         
-                <form action="seu_script_de_autenticacao.php" method="post">
+                <form action="/views" method="post">
                     <div class="form-group">
-                        <label class="label1"for="username ">CPF:</label>
-                        <input type="text" id="username" name="username" required placeholder="Digite seu CPF">
+                        <label class="label1" for="login">CPF:</label>
+                        <input type="text" id="username" name="login" required placeholder="Digite seu CPF">
                     </div>
                     <div class="form-group">
-                        <label class="label1" for="password ">Senha:</label>
+                        <label class="label1" for="password">Senha:</label>
                         <input type="password" id="password" name="password" required placeholder="Digite sua senha">
+                        <?php 
+                        if(isset($_POST['confirm'])){
+                            echo $erro;
+                        } 
+                        ?> 
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Entrar">
+                        <input type="submit" value="Entrar" name="confirm">
                     </div>
                 </form>
             </div>
