@@ -46,7 +46,7 @@ class QueryBuilder
             FROM 
                 projeto p
             JOIN 
-                iniciacaocientifica ic ON p.idProjeto = ic.idProjeto -- Aqui ajustamos para usar idProjeto
+                iniciacaocientifica ic ON p.idProjeto = ic.idProjeto 
                 
             UNION ALL
 
@@ -64,7 +64,7 @@ class QueryBuilder
             FROM 
                 projeto p
             JOIN 
-                treinamentoprofissional tp ON p.idProjeto = tp.idProjeto -- Ajuste aqui tambÃ©m
+                treinamentoprofissional tp ON p.idProjeto = tp.idProjeto 
             
             UNION ALL
 
@@ -82,7 +82,7 @@ class QueryBuilder
             FROM 
                 projeto p
             JOIN 
-                monitoria m ON p.idProjeto = m.idProjeto -- Ajuste para idProjeto
+                monitoria m ON p.idProjeto = m.idProjeto 
             
             UNION ALL
             SELECT 
@@ -99,7 +99,7 @@ class QueryBuilder
             FROM 
                 projeto p
             JOIN 
-                extensao e ON p.idProjeto = e.idProjeto -- Mais um ajuste para idProjeto
+                extensao e ON p.idProjeto = e.idProjeto 
         ";
 
         try {
