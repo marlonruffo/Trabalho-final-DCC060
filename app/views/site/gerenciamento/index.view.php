@@ -44,7 +44,19 @@
                     <tr>
                         <!-- <th scope="row"><?= $projeto->idProjeto ?></th> -->
                         <td><?= $projeto->titulo ?></td>
-                        <td><?= $projeto->tipo_projeto ?></td>
+                        <td>
+                            <?php 
+                                if($projeto->tipo_projeto == 'iniciacaocientifica') {
+                                    echo 'Iniciação Científica';
+                                } elseif($projeto->tipo_projeto == 'monitoria') {
+                                    echo 'Monitoria';
+                                } elseif($projeto->tipo_projeto == 'extensao') {
+                                    echo 'Extensão';
+                                } elseif($projeto->tipo_projeto == 'treinamentoprofissional') {
+                                    echo 'Treinamento Profissional';
+                                }
+                            ?>
+                        </td>
                         <td><?= $projeto->dataInicio ?></td>
                         <td><?= $projeto->dataFim ?></td>
                         <td><?= $projeto->status ?></td>
@@ -165,6 +177,7 @@
                     
                     <input type="hidden" name="idProjeto" value="<?php echo $projeto->idProjeto ?>">
                     <input type="hidden" name="idProfessor" value="<?php echo $projeto->idProfessor ?>">
+                    <input type="hidden" name="tipo_projeto" value="<?php echo $projeto->tipo_projeto ?>">
 
                     <div class="form-row">
                         <div class="form-group">
@@ -211,10 +224,10 @@
                         <div class="form-group">
                             <label for="inputTipoEditar">Tipo:</label>
                             <select class="form-control" id="inputTipoEditar" name="tipo">
-                                <option value="iniciacaoCientifica" <?php echo $projeto->tipo_projeto == 'iniciacaoCientifica' ? 'selected' : '' ?>>Iniciação Científica</option>
-                                <option value="pesquisa" <?php echo $projeto->tipo_projeto == 'pesquisa' ? 'selected' : '' ?>>Pesquisa</option>
+                                <option value="iniciacaocientifica" <?php echo $projeto->tipo_projeto == 'iniciacaocientifica' ? 'selected' : '' ?>>Iniciação Científica</option>
+                                <option value="monitoria" <?php echo $projeto->tipo_projeto == 'monitoria' ? 'selected' : '' ?>>Monitoria</option>
                                 <option value="extensao" <?php echo $projeto->tipo_projeto == 'extensao' ? 'selected' : '' ?>>Extensão</option>
-                                <option value="outrasAtividades" <?php echo $projeto->tipo_projeto == 'outrasAtividades' ? 'selected' : '' ?>>Outras Atividades</option>
+                                <option value="treinamentoprofissional" <?php echo $projeto->tipo_projeto == 'treinamentoprofissional' ? 'selected' : '' ?>>Treinamento Profissional</option>
                             </select>
                         </div>
                         <div class="form-group">

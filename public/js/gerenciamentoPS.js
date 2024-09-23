@@ -1,4 +1,4 @@
-// Modal Visualizar:
+
 const visualizarProjetoModal = document.getElementById(
     "visualizarProjetoModal"
   );
@@ -7,24 +7,23 @@ const visualizarProjetoModal = document.getElementById(
     "closeVisualizarProjetoModal"
   );
   
-  // Função para abrir o modal de visualização
+ 
   verProjetoButton.onclick = function () {
     visualizarProjetoModal.style.display = "block";
   };
   
-  // Função para fechar o modal de visualização
+ 
   closeVisualizarProjetoModal.onclick = function () {
     visualizarProjetoModal.style.display = "none";
   };
   
-  // Fechar o modal quando o usuário clicar fora dele
   window.onclick = function (event) {
     if (event.target === visualizarProjetoModal) {
       visualizarProjetoModal.style.display = "none";
     }
   };
   
-  // Modal Criar:
+
   
   const criarProjetoModal = document.getElementById("criarProjetoModal");
   const criarProjetoButton = document.getElementById("criarProjetoButton");
@@ -47,7 +46,7 @@ const visualizarProjetoModal = document.getElementById(
     }
   };
   
-  // Modal Editar:
+
   
   const editarProjetoModal = document.getElementById("editarProjetoModal");
   const editarProjetoButton = document.getElementById("editarProjetoButton");
@@ -69,7 +68,7 @@ const visualizarProjetoModal = document.getElementById(
     }
   };
   
-  // Modal Deletar:
+
   const deletarProjetoModal = document.getElementById("deletarProjetoModal");
   const deletarProjetoButton = document.getElementById("deletarProjetoButton");
   const closeDeletarProjetoModal = document.getElementById(
@@ -92,7 +91,7 @@ const visualizarProjetoModal = document.getElementById(
   
   //
   
-  //Modal Ver Inscritos Bolsa
+ 
   
   const verInscritosBolsaModal = document.getElementById("inscritosBolsaModal");
   const verInscritosBolsaModalButton = document.getElementById(
@@ -118,7 +117,7 @@ const visualizarProjetoModal = document.getElementById(
     }
   };
   
-  // Dropdown criar
+
   document.addEventListener("DOMContentLoaded", function () {
     const dropdownButton = document.getElementById("dropdownMenuButton");
     const checkboxes = document.querySelectorAll('input[name="cursosAceitos"]');
@@ -155,7 +154,7 @@ const visualizarProjetoModal = document.getElementById(
     });
   });
   
-  //dropdown editar
+
   document.addEventListener("DOMContentLoaded", function () {
     const dropdownButton = document.getElementById("dropdownMenuButtonEditar");
     const checkboxes = document.querySelectorAll('input[name="cursosAceitos"]');

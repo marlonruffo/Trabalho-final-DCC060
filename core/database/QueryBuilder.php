@@ -42,7 +42,7 @@ class QueryBuilder
                 p.status,
                 p.qtdeVagas,
                 p.idProfessor,
-                'Iniciação Científica' AS tipo_projeto
+                'iniciacaocientifica' AS tipo_projeto
             FROM 
                 projeto p
             JOIN 
@@ -60,11 +60,11 @@ class QueryBuilder
                 p.status,
                 p.qtdeVagas,
                 p.idProfessor,
-                'Treinamento Profissional' AS tipo_projeto
+                'treinamentoprofissional' AS tipo_projeto
             FROM 
                 projeto p
             JOIN 
-                treinamentoprofissional tp ON p.idProjeto = tp.idProjeto -- Ajuste aqui também
+                treinamentoprofissional tp ON p.idProjeto = tp.idProjeto -- Ajuste aqui tambÃ©m
             
             UNION ALL
 
@@ -78,7 +78,7 @@ class QueryBuilder
                 p.status,
                 p.qtdeVagas,
                 p.idProfessor,
-                'Monitoria' AS tipo_projeto
+                'monitoria' AS tipo_projeto
             FROM 
                 projeto p
             JOIN 
@@ -95,7 +95,7 @@ class QueryBuilder
                 p.status,
                 p.qtdeVagas,
                 p.idProfessor,
-                'Extensão' AS tipo_projeto
+                'extensao' AS tipo_projeto
             FROM 
                 projeto p
             JOIN 
@@ -124,6 +124,8 @@ class QueryBuilder
         try {
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute($parameters);
+
+            return $this->pdo->lastInsertId();
         } catch (Exception $e) {
             die($e->getMessage());
         }
@@ -131,7 +133,9 @@ class QueryBuilder
 
     public function deleteProjeto($table, $id)
     {
-        $sql = "delete from {$table} where idProjeto = {$id}";
+        $sql = "
+            delete from {$table} where idProjeto = {$id};
+        ";
 
         try {
             $stmt = $this->pdo->prepare($sql);
@@ -140,6 +144,7 @@ class QueryBuilder
             die($e->getMessage());
         }
     }
+
     public function updateProjeto($table, $parameters, $id)
     {
         $sql = sprintf(
@@ -150,10 +155,11 @@ class QueryBuilder
             }, array_keys($parameters))),
             $id
         );
-
+        
         try {
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute($parameters);
+
         } catch (Exception $e) {
             die($e->getMessage());
         }

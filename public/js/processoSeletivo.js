@@ -17,7 +17,7 @@ closeVisualizarPSModal.onclick = function() {
 }
 
 
-// Fechar o modal quando o usuário clicar fora dele
+
 window.onclick = function(event) {
     if (event.target === visualizarPSModal) {
         visualizarPSModal.style.display = "none";

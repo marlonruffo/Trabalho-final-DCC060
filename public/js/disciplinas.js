@@ -1,11 +1,10 @@
 
-// Seleção dos elementos do modal de visualização de bolsa
+
 const disciplinasModal = document.getElementById("disciplinasModal");
 const criarDisciplinaButton = document.getElementById("criarDisciplinaButton");
 const closeDisciplinasModal = document.getElementById("closeDisciplinasModal");
 
 
-// Função para abrir o modal de visualização
 criarDisciplinaButton.onclick = function() {
 
     disciplinasModal.style.display = "block";
@@ -17,7 +16,6 @@ closeDisciplinasModal.onclick = function() {
 }
 
 
-// Fechar o modal quando o usuário clicar fora dele
 window.onclick = function(event) {
     if (event.target === disciplinasModal) {
         disciplinasModal.style.display = "none";
