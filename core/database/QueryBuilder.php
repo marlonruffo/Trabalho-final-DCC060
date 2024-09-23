@@ -34,8 +34,7 @@ class QueryBuilder
         $sql  = "SELECT 
                     d.nome AS NomeDisciplina,
                     d.codigo AS CodigoDisciplina,
-                    d.cargaHoraria AS CargaHoraria,
-                    pr.idPreRequisito AS IdPreRequisito
+                    d.cargaHoraria AS CargaHoraria
                 FROM 
                     bolsafacil.Aluno_Cursou_Disciplina acd
                 JOIN 

@@ -27,7 +27,6 @@
       <tr class="legenda">
           <th scope="col">Código</th>
           <th scope="col">Nome</th>
-          <th scope="col">Pré-Requisitos</th>
           <th scope="col">Carga horária (horas)</th>
           <th scope="col">Ação</th>
         </tr>
@@ -38,7 +37,6 @@
         <tr>
           <th scope="row"><?= $preRequisito->CodigoDisciplina ?></th>
           <td><?= $preRequisito->NomeDisciplina ?></td>
-          <td><?= $preRequisito->IdPreRequisito ?></td>
           <td><?= $preRequisito->CargaHoraria ?></td> 
           <td><button type="button" class="btn btn-secondary botaotabela" id="deletarDisciplinaButton"><ion-icon
             name="trash-bin-outline"></ion-icon></button></td>
